@@ -41,3 +41,24 @@ cephClusterSpec:
         timeout: 2m
       status:
         timeout: 2m
+
+objectStore:
+  enabled: true
+  name: rook-ceph-objectstore
+  metadataPool:
+    failureDomain: host
+    replicated:
+      size: 3
+  dataPool:
+    failureDomain: host
+    replicated:
+      size: 3
+  gateway:
+    instances: 1
+    resources:
+      limits:
+        cpu: "500m"
+        memory: "512Mi"
+      requests:
+        cpu: "250m"
+        memory: "256Mi"
