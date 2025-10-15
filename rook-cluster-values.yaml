@@ -44,8 +44,8 @@ cephClusterSpec:
 
 objectStore:
   enabled: true
-  name: rook-ceph-objectstore
-  metadataPool:
+  name: my-store
+  pool:
     failureDomain: host
     replicated:
       size: 3
@@ -55,6 +55,7 @@ objectStore:
       size: 3
   gateway:
     instances: 1
+    port: 80
     resources:
       limits:
         cpu: "500m"
