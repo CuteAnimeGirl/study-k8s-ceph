@@ -1,6 +1,7 @@
-# rook-cluster-values.yaml
 operatorNamespace: rook-ceph
+
 cephClusterSpec:
+  dataDirHostPath: /var/lib/rook
   mon:
     count: 3
     allowMultiplePerNode: false
@@ -8,37 +9,19 @@ cephClusterSpec:
     count: 2
   dashboard:
     enabled: true
-    ssl: true
+    ssl: false
+  monitoring:
+    enabled: true
+    createPrometheusRules: true
   storage:
-    useAllNodes: false
-    useAllDevices: false
-    nodes:
-    - name: "deb2"
-      devices:
-      - name: "sdb"
-        config:
-          osdsPerDevice: "1"
-    - name: "deb3" 
-      devices:
-      - name: "sdb"
-        config:
-          osdsPerDevice: "1"
-    - name: "deb4"
-      devices:
-      - name: "sdb"
-        config:
-          osdsPerDevice: "1"
+    useAllNodes: true
+    useAllDevices: true
+    deviceFilter: "sda|sdb"
+    config:
+      databaseSizeMB: "1024"
+      journalSizeMB: "1024"
   disruptionManagement:
     managePodBudgets: true
     osdMaintenanceTimeout: 30
-    pgHealthCheckTimeout: 0
-  network:
-    provider: host
-  healthCheck:
-    daemonHealth:
-      mon:
-        timeout: 2m
-      osd:
-        timeout: 2m
-      status:
-        timeout: 2m
+    manageMachineDisruptionBudgets: false
+    machineDisruptionBudgetNamespace: rook-ceph

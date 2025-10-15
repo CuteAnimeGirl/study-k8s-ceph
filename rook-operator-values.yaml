@@ -1,9 +1,15 @@
-# rook-operator-values.yaml
 operatorNamespace: rook-ceph
+
+toolbox:
+  enabled: true
+
 csi:
-  enableProvisionCreds: true
-  enablePluginCreds: true
-  cephFS:
-    kernelMountOptions: rw
-  rbd:
-    kernelMountOptions: rw
+  enableRbdDriver: true
+  enableCephfsDriver: true
+  enableGrpcMetrics: true
+  enablePluginSocketDir: true
+
+monitoring:
+  enabled: true
+  createPrometheusRules: true
+  createServiceMonitor: true
