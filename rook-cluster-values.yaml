@@ -6,6 +6,9 @@ cephClusterSpec:
     allowMultiplePerNode: false
   mgr:
     count: 2
+  dashboard:
+    enabled: true
+    ssl: true
   storage:
     useAllNodes: false
     useAllDevices: false
