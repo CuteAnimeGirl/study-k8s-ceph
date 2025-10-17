@@ -14,10 +14,10 @@ cephClusterSpec:
     nodes:
       - name: "deb2"
         devices:
-          - name: "sdb"
+          - name: "sda"
       - name: "deb3" 
         devices:
           - name: "sdb"
       - name: "deb4"
         devices:
-          - name: "sdb"
+          - name: "sda"
