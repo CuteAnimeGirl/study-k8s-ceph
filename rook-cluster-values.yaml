@@ -17,7 +17,7 @@ cephClusterSpec:
           - name: "sda"
       - name: "deb3" 
         devices:
-          - name: "sdb"
+          - name: "sda"
       - name: "deb4"
         devices:
-          - name: "sda"
+          - name: "sdd"
