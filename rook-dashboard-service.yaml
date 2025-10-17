@@ -3,9 +3,6 @@ kind: Service
 metadata:
   name: rook-ceph-mgr-dashboard-nodeport
   namespace: rook-ceph
-  labels:
-    app: rook-ceph-mgr
-    rook_cluster: rook-ceph
 spec:
   type: NodePort
   ports:

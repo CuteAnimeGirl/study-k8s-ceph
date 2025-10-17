@@ -1,15 +1,7 @@
-operatorNamespace: rook-ceph
-
-toolbox:
-  enabled: true
-
-csi:
-  enableRbdDriver: true
-  enableCephfsDriver: true
-  enableGrpcMetrics: true
-  enablePluginSocketDir: true
-
-monitoring:
-  enabled: true
-  createPrometheusRules: true
-  createServiceMonitor: true
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+  requests:
+    cpu: 500m
+    memory: 512Mi

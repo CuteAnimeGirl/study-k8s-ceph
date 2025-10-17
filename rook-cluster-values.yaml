@@ -1,65 +1,18 @@
-operatorNamespace: rook-ceph
+toolbox:
+  enabled: true
+
 cephClusterSpec:
-  mon:
-    count: 3
-    allowMultiplePerNode: false
-  mgr:
-    count: 2
-  dashboard:
-    enabled: true
-    ssl: true
   storage:
     useAllNodes: false
     useAllDevices: false
-    nodes:
-    - name: "deb2"
-      devices:
-      - name: "sda"
-        config:
-          osdsPerDevice: "1"
-    - name: "deb3" 
-      devices:
-      - name: "sda"
-        config:
-          osdsPerDevice: "1"
-    - name: "deb4"
-      devices:
-      - name: "sdb"
-        config:
-          osdsPerDevice: "1"
-  disruptionManagement:
-    managePodBudgets: true
-    osdMaintenanceTimeout: 30
-    pgHealthCheckTimeout: 0
-  network:
-    provider: host
-  healthCheck:
-    daemonHealth:
-      mon:
-        timeout: 2m
-      osd:
-        timeout: 2m
-      status:
-        timeout: 2m
 
-objectStore:
-  enabled: true
-  name: my-store
-  pool:
-    failureDomain: host
-    replicated:
-      size: 3
-  dataPool:
-    failureDomain: host
-    replicated:
-      size: 3
-  gateway:
-    instances: 1
-    port: 80
-    resources:
-      limits:
-        cpu: "500m"
-        memory: "512Mi"
-      requests:
-        cpu: "250m"
-        memory: "256Mi"
+    nodes:
+      - name: "deb2"
+        devices:
+          - name: "sdb"
+      - name: "deb3" 
+        devices:
+          - name: "sdb"
+      - name: "deb4"
+        devices:
+          - name: "sdb"

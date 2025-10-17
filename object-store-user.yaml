@@ -1,8 +1,0 @@
-apiVersion: ceph.rook.io/v1
-kind: CephObjectStoreUser
-metadata:
-  name: rook-ceph-objectstore-user
-  namespace: rook-ceph
-spec:
-  store: rook-ceph-objectstore
-  displayName: "Rook Ceph Object Store User"
