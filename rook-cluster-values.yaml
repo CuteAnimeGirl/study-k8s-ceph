@@ -1,12 +1,12 @@
 toolbox:
   enabled: true
 
-cephClusterSpec:
-  configOverride: |
-    [global]
-    osd_pool_default_pg_num = 8
-    osd_pool_default_pgp_num = 8
+configOverride: |
+  [global]
+  osd_pool_default_pg_num = 8
+  osd_pool_default_pgp_num = 8
 
+cephClusterSpec:
   storage:
     useAllNodes: false
     useAllDevices: false
